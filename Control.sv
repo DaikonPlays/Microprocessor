@@ -1,15 +1,22 @@
 // control decoder
-module Control #(parameter opwidth = 3, mcodebits = 4)(
-  input [mcodebits-1:0] instr,    // subset of machine code (any width you need)
-  input        zeroflg, 
-               sign, 
-               carry, 
-               overflow
-  output logic RegDst, Branch, 
-     MemtoReg, MemWrite, ALUSrc, RegWrite,
-  output logic[opwidth:0] ALUOp),
-  output logic [1:0] jump_addr,;	   // for up to 16 ALU operations
-
+module Control #(
+    parameter opwidth = 4, 
+    mcodebits = 4
+)(
+    input [mcodebits-1:0] instr,    // subset of machine code (any width you need)
+   // input zeroflg, 
+    //input sign, 
+    //input carry, 
+   // input overflow,
+    output logic RegDst, 
+    output logic Branch, 
+    output logic MemtoReg, 
+    output logic MemWrite, 
+    output logic ALUSrc, 
+    output logic RegWrite,
+    output logic [opwidth-1:0] ALUOp  // Correct the bit width declaration
+    //output logic [1:0] jump_addr     // Remove unnecessary semicolon
+);
 
 //and r0, r1
 
